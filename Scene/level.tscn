@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dbi88cqli4u3j"]
+
+[ext_resource type="Texture2D" uid="uid://djwh32wo0b8y5" path="res://Textures/Background.jpg" id="1_7wcfd"]
+[ext_resource type="PackedScene" uid="uid://fqr4q67vixbh" path="res://Scene/Basket.tscn" id="2_3bu56"]
+[ext_resource type="PackedScene" uid="uid://cin8ottctm447" path="res://Scene/fruit.tscn" id="3_jnrmd"]
+[ext_resource type="Script" uid="uid://c3b70y4wd8d45" path="res://Scripts/FruitSpawner.cs" id="4_or6n4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mri6o"]
+size = Vector2(3692, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r673q"]
+size = Vector2(20, 2278.5)
+
+[node name="Level" type="Node2D" unique_id=365704923]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2143029167]
+offset_left = -178.0
+offset_right = 3918.0
+offset_bottom = 2304.0
+texture = ExtResource("1_7wcfd")
+
+[node name="Camera" type="Node" parent="." unique_id=755550319]
+
+[node name="Camera2D" type="Camera2D" parent="Camera" unique_id=185053960]
+position = Vector2(2029, 1118)
+zoom = Vector2(0.312, 0.29)
+
+[node name="Borders" type="Node" parent="." unique_id=1594390184]
+
+[node name="KillZone" type="Area2D" parent="Borders" unique_id=819684926]
+position = Vector2(183, 10)
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/KillZone" unique_id=1478363743]
+position = Vector2(1845, 2247)
+shape = SubResource("RectangleShape2D_mri6o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=1403537353]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=2038795264]
+position = Vector2(173, 1139.5)
+shape = SubResource("RectangleShape2D_r673q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=987071130]
+position = Vector2(3884, 1139.25)
+shape = SubResource("RectangleShape2D_r673q")
+
+[node name="Fruit Spawner" type="Node2D" parent="." unique_id=33796434]
+script = ExtResource("4_or6n4")
+FruitScene = ExtResource("3_jnrmd")
+
+[node name="Timer" type="Timer" parent="Fruit Spawner" unique_id=1861771758]
+wait_time = 1.5
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="Fruit Spawner" unique_id=784047825]
+position = Vector2(302, 36)
+
+[node name="Marker2D2" type="Marker2D" parent="Fruit Spawner" unique_id=1232219603]
+position = Vector2(511, 36)
+
+[node name="Marker2D3" type="Marker2D" parent="Fruit Spawner" unique_id=1282448439]
+position = Vector2(807, 32)
+
+[node name="Marker2D4" type="Marker2D" parent="Fruit Spawner" unique_id=365612140]
+position = Vector2(1126, 32)
+
+[node name="Marker2D5" type="Marker2D" parent="Fruit Spawner" unique_id=811816600]
+position = Vector2(1396, 32)
+
+[node name="Marker2D6" type="Marker2D" parent="Fruit Spawner" unique_id=809466540]
+position = Vector2(1688, 32)
+
+[node name="Marker2D7" type="Marker2D" parent="Fruit Spawner" unique_id=208986779]
+position = Vector2(1992, 28)
+
+[node name="Marker2D8" type="Marker2D" parent="Fruit Spawner" unique_id=1286326676]
+position = Vector2(2235, 13)
+
+[node name="Marker2D9" type="Marker2D" parent="Fruit Spawner" unique_id=136967290]
+position = Vector2(2516, 32)
+
+[node name="Marker2D10" type="Marker2D" parent="Fruit Spawner" unique_id=1258493412]
+position = Vector2(2744, 36)
+
+[node name="Marker2D11" type="Marker2D" parent="Fruit Spawner" unique_id=1636625092]
+position = Vector2(3002, 40)
+
+[node name="Marker2D12" type="Marker2D" parent="Fruit Spawner" unique_id=9570578]
+position = Vector2(3264, 40)
+
+[node name="Marker2D13" type="Marker2D" parent="Fruit Spawner" unique_id=534173789]
+position = Vector2(3488, 48)
+
+[node name="Marker2D14" type="Marker2D" parent="Fruit Spawner" unique_id=1179708556]
+position = Vector2(3693, 52)
+
+[node name="Basket" parent="." unique_id=2096491103 instance=ExtResource("2_3bu56")]
+position = Vector2(2017, 1959)

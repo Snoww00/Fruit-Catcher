@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cin8ottctm447"]
+
+[ext_resource type="Texture2D" uid="uid://bw32rp8kdf32x" path="res://Textures/Full Sheet.png" id="1_mnhq4"]
+[ext_resource type="Script" uid="uid://b135iqwd413fp" path="res://Scripts/Fruit.cs" id="2_jwhk7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_quuis"]
+radius = 47.67599
+
+[node name="Area2D" type="Area2D" unique_id=2083965443]
+script = ExtResource("2_jwhk7")
+
+[node name="Fruit" type="Sprite2D" parent="." unique_id=1907059009]
+scale = Vector2(10, 10)
+texture = ExtResource("1_mnhq4")
+hframes = 5
+vframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1243083972]
+position = Vector2(-3, 12)
+shape = SubResource("CircleShape2D_quuis")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

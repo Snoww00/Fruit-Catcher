@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fqr4q67vixbh"]
+
+[ext_resource type="Texture2D" uid="uid://d3mxgr3wj53vm" path="res://Textures/sprites/2x/crate.png" id="1_4oyb0"]
+[ext_resource type="Script" uid="uid://dr2s1b50ipcmn" path="res://Scripts/Basket.cs" id="1_ictup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quuis"]
+size = Vector2(240, 102)
+
+[node name="Basket" type="CharacterBody2D" unique_id=763309459]
+script = ExtResource("1_ictup")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=869539563]
+scale = Vector2(4, 4)
+texture = ExtResource("1_4oyb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=370968295]
+position = Vector2(0, 62)
+shape = SubResource("RectangleShape2D_quuis")
