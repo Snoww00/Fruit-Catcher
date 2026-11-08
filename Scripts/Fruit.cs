@@ -27,6 +27,10 @@ public partial class Fruit : Area2D
 	{
 		if (body is Basket)
 		{
+			var GameManager = GetNode<GameManager>("/root/GameManager");
+			GameManager.AddScore(1);
+			
+			GD.Print("Score: " + GameManager._currentscore);
 			QueueFree();
 		}
 	}
