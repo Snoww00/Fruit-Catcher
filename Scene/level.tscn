@@ -2,40 +2,33 @@
 
 [ext_resource type="Texture2D" uid="uid://bvfjp7nyq5duy" path="res://Textures/8-bit-graphics-pixels-scene-with-nature.jpg" id="1_or6n4"]
 [ext_resource type="PackedScene" uid="uid://fqr4q67vixbh" path="res://Scene/Basket.tscn" id="2_3bu56"]
+[ext_resource type="Script" uid="uid://c8i51tmae1prt" path="res://Scripts/KillZone.cs" id="2_p7rx0"]
 [ext_resource type="PackedScene" uid="uid://cin8ottctm447" path="res://Scene/fruit.tscn" id="3_jnrmd"]
 [ext_resource type="Script" uid="uid://c3b70y4wd8d45" path="res://Scripts/FruitSpawner.cs" id="4_or6n4"]
 [ext_resource type="Script" uid="uid://b0006n4u814y2" path="res://Scripts/ScoreUi.cs" id="5_tut6d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mri6o"]
-size = Vector2(4059, 44)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r673q"]
 size = Vector2(43, 2929.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7rx0"]
+size = Vector2(4103, 20)
 
 [node name="Level" type="Node2D" unique_id=365704923]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2143029167]
-offset_left = 5.0
-offset_top = -6.0
-offset_right = 4073.0
-offset_bottom = 2682.0
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 4062.0
+offset_bottom = 2684.0
 texture = ExtResource("1_or6n4")
 
 [node name="Camera" type="Node" parent="." unique_id=755550319]
 
 [node name="Camera2D" type="Camera2D" parent="Camera" unique_id=185053960]
 position = Vector2(2029, 1340.965)
-zoom = Vector2(0.282, 0.24)
+zoom = Vector2(0.283, 0.242)
 
 [node name="Borders" type="Node" parent="." unique_id=1594390184]
-
-[node name="KillZone" type="Area2D" parent="Borders" unique_id=819684926]
-position = Vector2(183, 10)
-collision_mask = 0
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/KillZone" unique_id=1478363743]
-position = Vector2(1848.5, 2695)
-shape = SubResource("RectangleShape2D_mri6o")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=1403537353]
 
@@ -96,6 +89,16 @@ position = Vector2(3744, 62)
 
 [node name="Marker2D14" type="Marker2D" parent="Fruit Spawner" unique_id=1179708556]
 position = Vector2(3945, 51)
+
+[node name="KillZone" type="Area2D" parent="." unique_id=819684926]
+position = Vector2(183, 10)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_p7rx0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KillZone" unique_id=1478363743]
+position = Vector2(1879, 2674)
+shape = SubResource("RectangleShape2D_p7rx0")
 
 [node name="Basket" parent="." unique_id=2096491103 instance=ExtResource("2_3bu56")]
 position = Vector2(2034, 2353)
